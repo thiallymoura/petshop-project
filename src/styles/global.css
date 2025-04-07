@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --content-primary: #FFFFFF;
+    --content-secondary: #98959D;
+    --content-tertiary: #666666;
+    --content-brand: #9282FA;
+
+    --background-primary: #151515;
+    --background-secondary: #1E1E1E;
+    --background-tertiary: #23242C;
+    --background-brand: #9282FA;
+    --background-highlights: #BDB4FA;
+
+    --border-primary: #3E3C41;
+    --border-secondary: #86818C;
+    --border-brand: #9282FA;
+    --border-divisor: #353339;
+
+    --accent-blue: #027DF0;
+    --accent-blue-light: #16487A;
+    --accent-yellow: #F0DC02;
+    --accent-yellow-light: #756E1B;
+    --accent-orange: #F09102;
+    --accent-orange-light: #75501B;
+
+    --ff-inter-tight: 'Inter Tight', sans-serif;
+    --font-title: 700 1.5rem var(--ff-inter-tight);
+
+    --ff-inter: 'Inter', sans-serif;
+    --font-paragraph-medium: 500 .875rem var(--ff-inter);
+    --font-paragraph-small: 500 0.750rem var(--ff-inter);
+    --font-label-large: 700 1rem var(--ff-inter);
+    --font-label-medium: 700 0.875rem var(--ff-inter);
+    --font-label-small: 700 0.750rem var(--ff-inter);
+    --font-label-link: 500 0.750rem var(--ff-inter);
+
+}
