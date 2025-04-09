@@ -11,6 +11,7 @@
     --content-tertiary: #666666;
     --content-brand: #9282FA;
 
+    --background: #14151D;
     --background-primary: #151515;
     --background-secondary: #1E1E1E;
     --background-tertiary: #23242C;
@@ -40,4 +41,21 @@
     --font-label-small: 700 0.750rem var(--ff-inter);
     --font-label-link: 500 0.750rem var(--ff-inter);
 
+}
+
+body {
+    background-color: var(--background);
+    color: var(--content-primary);
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2E2C30;
+    height: 3rem;
+    width: 9.5rem;
+
+    border-radius: 0 0 1rem 0;
 }
