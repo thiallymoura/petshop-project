@@ -16,7 +16,162 @@
 </head>
 
 <body>
+    <!-- logo -->
+    <div class="header logo">
+        <img src="./src/assets/logo.svg" alt="imagem da logo">
+    </div>
 
+    <!-- agenda -->
+    <main class="schedule">
+        <header>
+            <div class="title">
+                <h1>Sua agenda</h1>
+                <p>
+                    Aqui você pode ver todos os clientes e serviços agendados para hoje.
+                </p>
+            </div>
+            <div class="input">
+                <i><img src="./src/assets/Calendar Minimalistic.svg" alt="Calendário" /></i>
+                <input type="date" id="date" name="date" required />
+            </div>
+        </header>
+
+        <section class="schedule-period">
+            <!-- Período Manhã -->
+            <header class="period-header">
+                <div class="period-title">
+                    <img src="./src/assets/Sun Fog.svg" alt="Manhã" />
+                    <strong>Manhã</strong>
+                </div>
+                <span>09h-12h</span>
+            </header>
+
+            <ul id="period-morning" class="period">
+                <li>
+                    <div>
+                        <strong>09:00</strong>
+                        <span class="pet">Mel <span class="client">/ Thially Moura</span></span>
+                    </div>
+                    <span class="description">Vacinação</span>
+                    <span class="delete">Remover agendamento</span>
+                </li>
+
+            </ul>
+
+            <!-- Período Tarde -->
+            <header class="period-header">
+                <div class="period-title">
+                    <img src="./src/assets/Cloud-Sun.svg" alt="Tarde" />
+                    <strong>Tarde</strong>
+                </div>
+                <span>12h-18h</span>
+            </header>
+
+            <ul id="period-morning" class="period">
+                <li>
+                    <div>
+                        <strong>12:00</strong>
+                        <span class="pet">Mel <span class="client">/ Thially Moura</span></span>
+                    </div>
+                    <span class="description">Vacinação</span>
+                    <span class="delete">Remover agendamento</span>
+                </li>
+                <li>
+                    <div>
+                        <strong>15:00</strong>
+                        <span class="pet">Thor <span class="client">/ Helton Silva</span></span>
+                    </div>
+                    <span class="description">Banho e Tosa</span>
+                    <span class="delete">Remover agendamento</span>
+                </li>
+                <li>
+                    <div>
+                        <strong>15:00</strong>
+                        <span class="pet">Mel <span class="client">/ Valenthina Camilly</span></span>
+                    </div>
+                    <span class="description">Banho</span>
+                    <span class="delete">Remover agendamento</span>
+                </li>
+            </ul>
+
+            <!-- Período Noite -->
+            <header class="period-header">
+                <div class="period-title">
+                    <img src="./src/assets/Moon-Stars.svg" alt="Noite" />
+                    <strong>Tarde</strong>
+                </div>
+                <span>12h-18h</span>
+            </header>
+
+            <ul id="period-morning" class="period">
+                <li>
+                    <div>
+                        <strong>12:00</strong>
+                        <span class="pet">Mel <span class="client">/ Thially Moura</span></span>
+                    </div>
+                    <span class="description">Vacinação</span>
+                    <span class="delete">Remover agendamento</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- botão de agendamento -->
+        <button id="new-schedule" class="new-schedule">Novo agendamento</button>
+    </main>
+
+    <!-- Modal de novo agendamento -->
+    <aside id="modal" class="modal">
+        <form class="modal-content">
+            <header>
+                <h2>Agende um atendimento</h2>
+                <p>Preencha os dados do cliente para realizar o agendamento:</p>
+            </header>
+
+
+            <label for="client">Nome do tutor</label>
+            <div class="input-with-icon">
+                <img src="./src/assets/User--Streamline-Solar.svg" alt="user" />
+                <input type="text" id="client" name="client" placeholder="Helena Souza" required />
+            </div>
+
+            <label for="pet">Nome do pet</label>
+            <div class="input-with-icon">
+                <img src="./src/assets/Pet-Paw--Streamline-Core.svg" alt="pet" />
+                <input type="text" id="pet" name="pet" placeholder="Cheddar" required />
+            </div>
+
+            <label for="phone">Telefone</label>
+            <div class="input-with-icon">
+                <img src="./src/assets/Phone--Streamline-Solar.svg" alt="phone" />
+                <input type="tel" id="phone" name="phone" placeholder="(00) 0 0000-0000" required />
+            </div>
+
+            <label for="description">Descrição do serviço</label>
+            <div class="input-with-icon">
+                <input type="text" id="description" name="description" placeholder="Banho e tosa" required />
+            </div>
+
+            <div class="modal-row">
+                <label>
+                    Data
+                    <div class="input-with-icon">
+                        <img src="./src/assets/Calendar Minimalistic.svg" alt="Calendário" />
+                        <input type="date" id="date" name="date" required />
+                    </div>
+                </label>
+
+                <label>
+                    Hora
+                    <div class="input-with-icon">
+                        <img src="./src/assets/Clock Circle.svg" alt="Relógio" />
+                        <input type="time" id="time" name="time" required min="08:00" max="20:00" step="1800" />
+                    </div>
+                </label>
+            </div>
+
+            <button type="submit" id="submit" class="submit">Agendar</button>
+        </form>
+    </aside>
 </body>
 
 </html>
