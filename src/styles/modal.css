@@ -12,6 +12,7 @@
 
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 
     &.hidden {
         display: none;
@@ -26,19 +27,18 @@
         flex-direction: column;
         color: var(--content-primary);
 
-
-        & h2 {
+        h2 {
             font: var(--font-title);
             color: var(--content-primary);
         }
 
-        & p {
+        p {
             font: var(--font-paragraph-medium);
             color: var(--content-secondary);
             margin-bottom: 1rem;
         }
 
-        & label {
+        label {
             display: flex;
             flex-direction: column;
             margin: 1.25rem 0 0.5rem 0;
@@ -47,17 +47,16 @@
             gap: 0.25rem;
         }
 
-        & #description {
+        #description {
             padding-left: 1rem;
         }
 
-
-        & .input-with-icon {
+        .input-with-icon {
             position: relative;
             display: flex;
             align-items: center;
 
-            & img {
+            img {
                 position: absolute;
                 left: 1rem;
                 width: 1.25rem;
@@ -65,72 +64,108 @@
                 pointer-events: none;
             }
 
-            & input {
+            input {
                 border: none;
                 outline: none;
-
                 height: 3rem;
                 width: 100%;
-
                 color: var(--content-secondary);
                 font: var(--font-paragraph-medium);
-
                 padding: 0.75rem 1rem 0.75rem 3rem;
                 border-radius: 0.5rem;
-
                 background-color: transparent;
-                border: #3E3C41 solid 1px;
+                border: 1px solid #3E3C41;
 
                 &::placeholder {
                     color: var(--content-secondary);
                 }
 
                 &:hover {
-                    border: var(--border-secondary) solid 1px;
+                    border: 1px solid var(--border-secondary);
                 }
 
                 &:focus {
-                    border: var(--border-brand) solid 1px;
+                    border: 1px solid var(--border-brand);
                 }
             }
         }
 
-        & .modal-row {
+        .modal-row {
             display: flex;
             gap: 1rem;
 
-            & label {
+            label {
                 flex: 1;
-            }
-
-            & .modal-content input[type="date"],
-            & .modal-content input[type="time"] {
-                color: var(--content-secondary);
             }
         }
 
-        & ::-webkit-calendar-picker-indicator {
+        input[type="date"] {
+            color: var(--content-secondary);
+        }
+
+        ::-webkit-calendar-picker-indicator {
             cursor: pointer;
             background: url("../assets/arrow.svg") no-repeat;
             border: none;
             outline: none;
         }
 
-        & .submit {
+        select {
+            border: 1px solid #3E3C41;
+            height: 3rem;
+            width: 100%;
+            color: var(--content-secondary);
+            font: var(--font-paragraph-medium);
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border-radius: 0.5rem;
+            appearance: none;
+            background: url("../assets/arrow.svg") no-repeat right 1rem center;
+            background-size: 1.25rem;
+
+            &:hover {
+                border: 1px solid var(--border-secondary);
+            }
+
+            &:focus {
+                border: 1px solid var(--border-brand);
+                outline: none;
+            }
+        }
+
+
+        .submit {
             margin-top: 1rem;
             background-color: var(--content-brand);
             color: #050505;
             padding: 0.75rem;
             border-radius: 0.5rem;
-
             cursor: pointer;
             border: none;
-
             font: var(--font-label-large);
             text-transform: uppercase;
 
             &:hover {
                 background-color: #bdb4fa;
+            }
+
+            &:focus {
+                border: none;
+                outline: none;
+            }
+        }
+
+        .btn-cancel {
+            margin-top: 1rem;
+            background-color: transparent;
+            border: 1px solid #3E3C41;
+            color: white;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font: var(--font-label-large);
+
+            &:hover {
+                background-color: #4b4a4c;
             }
 
             &:focus {
@@ -144,13 +179,7 @@
 /* Blur no conteúdo de fundo quando o modal está aberto */
 body.modal-open main.schedule {
     filter: blur(6px);
-    backdrop-filter: blur(6px);
     pointer-events: none;
     user-select: none;
     transition: all 0.3s ease;
-}
-
-.logo {
-    position: relative;
-    z-index: 2;
 }

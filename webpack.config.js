@@ -21,6 +21,13 @@ module.exports = {
         port: 3000,
         open: true,
         liveReload: true,
+
+        watchFiles: {
+            paths: ["src/**/*.html"], // Adiciona a observação de alterações no index.html 
+            options: {
+                usePolling: true, // Pode ser necessário caso você esteja em um sistema de arquivos onde a detecção de alterações não funciona bem
+            }
+        }
     },
 
     plugins: [

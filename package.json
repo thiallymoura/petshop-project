@@ -3,8 +3,8 @@
   "description": "Aplicação web de agendamento para petshop",
   "author": "Thially Moura",
   "scripts": {
-    "dev": "webpack serve",
     "build": "webpack",
+    "dev": "webpack serve",
     "server": "json-server --watch server.json --port 3333"
   },
   "keywords": [],

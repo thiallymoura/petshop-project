@@ -69,7 +69,7 @@
                 <span>12h-18h</span>
             </header>
 
-            <ul id="period-morning" class="period">
+            <ul id="period-afternoon" class="period">
                 <li>
                     <div>
                         <strong>12:00</strong>
@@ -105,7 +105,7 @@
                 <span>12h-18h</span>
             </header>
 
-            <ul id="period-morning" class="period">
+            <ul id="period-night" class="period">
                 <li>
                     <div>
                         <strong>12:00</strong>
@@ -133,24 +133,24 @@
             <label for="client">Nome do tutor</label>
             <div class="input-with-icon">
                 <img src="./src/assets/User--Streamline-Solar.svg" alt="user" />
-                <input type="text" id="client" name="client" placeholder="Helena Souza" required />
+                <input type="text" id="client" name="client" placeholder="Helena Souza" />
             </div>
 
             <label for="pet">Nome do pet</label>
             <div class="input-with-icon">
                 <img src="./src/assets/Pet-Paw--Streamline-Core.svg" alt="pet" />
-                <input type="text" id="pet" name="pet" placeholder="Cheddar" required />
+                <input type="text" id="pet" name="pet" placeholder="Cheddar" />
             </div>
 
             <label for="phone">Telefone</label>
             <div class="input-with-icon">
                 <img src="./src/assets/Phone--Streamline-Solar.svg" alt="phone" />
-                <input type="tel" id="phone" name="phone" placeholder="(00) 0 0000-0000" required />
+                <input type="tel" id="phone" name="phone" placeholder="(00) 0 0000-0000" />
             </div>
 
             <label for="description">Descrição do serviço</label>
             <div class="input-with-icon">
-                <input type="text" id="description" name="description" placeholder="Banho e tosa" required />
+                <input type="text" id="description" name="description" placeholder="Banho e tosa" />
             </div>
 
             <div class="modal-row">
@@ -158,7 +158,7 @@
                     Data
                     <div class="input-with-icon">
                         <img src="./src/assets/Calendar Minimalistic.svg" alt="Calendário" />
-                        <input type="date" id="date" name="date" required />
+                        <input type="date" id="date-modal" name="date-modal" />
                     </div>
                 </label>
 
@@ -166,12 +166,16 @@
                     Hora
                     <div class="input-with-icon">
                         <img src="./src/assets/Clock Circle.svg" alt="Relógio" />
-                        <input type="time" id="time" name="time" required min="08:00" max="20:00" step="1800" />
+                        <select id="time" name="time">
+                            <option value=""></option>
+                        </select>
+
                     </div>
                 </label>
             </div>
 
             <button type="submit" id="submit" class="submit">Agendar</button>
+            <button type="submit" id="btn-cancel" class="btn-cancel">Cancelar</button>
         </form>
     </aside>
 </body>
