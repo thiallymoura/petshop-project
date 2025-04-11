@@ -7,7 +7,7 @@
 
     position: relative;
 
-    header {
+    .schedule-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -22,6 +22,7 @@
         & p {
             font: 500 .875rem var(--ff-inter);
             color: var(--content-secondary);
+            margin-bottom: 1rem;
         }
 
         & .input {
@@ -55,7 +56,7 @@
     }
 
     & .schedule-period {
-        margin-top: 3rem;
+        margin-top: 1.5rem;
         width: 44rem;
 
         & .period-header {
@@ -83,7 +84,10 @@
                 font: var(--font-label-large);
                 color: var(--content-secondary);
             }
+
         }
+
+
 
         & .period {
             display: flex;
@@ -151,7 +155,7 @@
         cursor: pointer;
 
         position: absolute;
-        bottom: 10rem;
+        bottom: 8rem;
         right: -10rem;
 
         &:hover {

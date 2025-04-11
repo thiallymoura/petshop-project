@@ -1,0 +1,79 @@
+@media (max-width: 48em) {
+
+    body {
+        overflow: hidden;
+        max-width: 100vw;
+
+        .schedule {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            width: 100%;
+            max-width: 30rem;
+            padding: 1rem;
+
+            .schedule-header {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                width: 100%;
+
+                .title {
+                    width: 100%;
+                }
+
+                p {
+                    width: 100%;
+                    margin-bottom: 0.5rem;
+                }
+
+                .input {
+                    display: flex;
+                    align-items: flex-start;
+
+
+                    margin-top: 0.5rem;
+                }
+            }
+
+            .schedule-period {
+                width: 100%;
+            }
+
+            .new-schedule {
+                position: static;
+                margin-top: 2rem;
+                align-self: center;
+                width: 100%;
+
+                max-width: 15rem;
+
+            }
+        }
+
+        .modal {
+            .modal-content {
+                display: flex;
+                flex-direction: column;
+
+                width: 100%;
+                max-width: 24rem;
+
+                padding: 1.2rem;
+
+                h2 {
+                    margin-bottom: .5rem;
+                }
+
+                .modal-row {
+                    gap: .5rem;
+
+                    #date-modal {
+                        width: 10.7rem;
+                    }
+                }
+            }
+        }
+    }
+}
