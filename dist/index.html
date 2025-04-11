@@ -25,7 +25,7 @@
 
     <!-- agenda -->
     <main class="schedule">
-        <header>
+        <header class="schedule-header">
             <div class="title">
                 <h1>Sua agenda</h1>
                 <p>
@@ -39,37 +39,39 @@
         </header>
 
         <section class="schedule-period">
-            <!-- Período Manhã -->
+
             <header class="period-header">
                 <div class="period-title">
                     <img src="./src/assets/Sun Fog.svg" alt="Manhã" />
                     <strong>Manhã</strong>
                 </div>
-                <span>09h-12h</span>
+                <span>09h-11h</span>
             </header>
 
             <ul id="period-morning" class="period">
-                <li>
+                <!-- exemplo 
                     <div>
                         <strong>09:00</strong>
                         <span class="pet">Mel <span class="client">/ Thially Moura</span></span>
                     </div>
                     <span class="description">Vacinação</span>
                     <span class="delete">Remover agendamento</span>
-                </li>
-
+                </li>-->
             </ul>
+        </section>
 
-            <!-- Período Tarde -->
+        <section class="schedule-period">
+
             <header class="period-header">
                 <div class="period-title">
                     <img src="./src/assets/Cloud-Sun.svg" alt="Tarde" />
                     <strong>Tarde</strong>
                 </div>
-                <span>12h-18h</span>
+                <span>12h-17h</span>
             </header>
 
             <ul id="period-afternoon" class="period">
+                <!-- exemplo 
                 <li>
                     <div>
                         <strong>12:00</strong>
@@ -93,19 +95,22 @@
                     </div>
                     <span class="description">Banho</span>
                     <span class="delete">Remover agendamento</span>
-                </li>
+                </li>-->
             </ul>
+        </section>
 
-            <!-- Período Noite -->
+        <section class="schedule-period">
+
             <header class="period-header">
                 <div class="period-title">
                     <img src="./src/assets/Moon-Stars.svg" alt="Noite" />
-                    <strong>Tarde</strong>
+                    <strong>Noite</strong>
                 </div>
-                <span>12h-18h</span>
+                <span>18h-20h</span>
             </header>
 
             <ul id="period-night" class="period">
+                <!-- exemplo
                 <li>
                     <div>
                         <strong>12:00</strong>
@@ -113,7 +118,7 @@
                     </div>
                     <span class="description">Vacinação</span>
                     <span class="delete">Remover agendamento</span>
-                </li>
+                </li> -->
             </ul>
         </section>
 
@@ -139,7 +144,7 @@
             <label for="pet">Nome do pet</label>
             <div class="input-with-icon">
                 <img src="./src/assets/Pet-Paw--Streamline-Core.svg" alt="pet" />
-                <input type="text" id="pet" name="pet" placeholder="Cheddar" />
+                <input type="text" id="pet" name="pet" placeholder="cheddar" />
             </div>
 
             <label for="phone">Telefone</label>

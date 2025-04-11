@@ -2,6 +2,9 @@ import dayjs from "dayjs";
 
 // Importando as horas disponíveis
 import { openingHours } from "../utils/opening-hour.js";
+import { scheduleNew } from "../services/schedule-new.js";
+import { scheduleFetchByDay } from "../services/schedule-fetch-by-day.js";
+import { schedulesShow } from "./schedules/show.js";
 
 const modal = document.getElementById('modal');
 const openButton = document.getElementById('new-schedule');
@@ -64,7 +67,7 @@ phoneInput.addEventListener("input", (e) => {
     e.target.value = value;
 });
 
-form.onsubmit = (e) => {
+form.onsubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -114,7 +117,7 @@ form.onsubmit = (e) => {
         // gera o ID
         const id = new Date().getTime();
 
-        console.log({
+        await scheduleNew({
             id,
             name,
             namePet,
@@ -124,6 +127,14 @@ form.onsubmit = (e) => {
             time,
             when
         });
+
+        // fecha o modal
+        modal.classList.add('hidden');
+        document.body.classList.remove('modal-open');
+
+        // limpa o formulário
+        form.reset();
+
 
     } catch (error) {
         console.log(error);
@@ -152,43 +163,56 @@ function generateTimeOptions() {
 generateTimeOptions();
 
 
-document.addEventListener("DOMContentLoaded", () => {
+// Função de carregamento de agendamentos
+export async function schedulesDay() {
     // obtem a data do input
     const date = formDate.value
 
+    // busca na api os agendamentos do dia selecionado
+    const dailySchedules = await scheduleFetchByDay({ date })
+    console.log(dailySchedules);
+
+    //exibe os agendamentos
+    schedulesShow({ dailySchedules })
+
     // rendizando os horas disponíveis
-    hoursLoad({ date });
-});
+    hoursLoad({ date, dailySchedules });
+};
 
 
 // Função para carregar as horas disponíveis
-function hoursLoad({ date }) {
+function hoursLoad({ date, dailySchedules }) {
     const select = document.getElementById("time");
+    select.innerHTML = "";
 
-    select.innerHTML = ""; // limpa antes de renderizar de novo
+    // Pegando os horários ocupados
+    const busyHours = dailySchedules.map(schedule => schedule.time);
 
     const opening = openingHours.map((hour) => {
-        //Recupera apenas a hora
         const [scheduleHour] = hour.split(":");
 
-        //adiciona a hora no date e verifica se esta no passado
         const isHourPast = dayjs(date).add(scheduleHour, "hour").isAfter(dayjs());
+
+        // verifica se esse horário está ocupado
+        const isBusy = busyHours.includes(hour);
 
         return {
             hour,
-            available: isHourPast,
+            available: isHourPast && !isBusy, // agora checa se não está ocupado
         };
     });
 
     // renderizar as horas disponíveis
     opening.forEach(({ hour, available }) => {
 
-
+        // Verifica se o horário está disponível
         if (available) {
             const option = document.createElement("option");
 
+            // Define o valor do option como o horário
             option.value = hour;
             option.textContent = hour;
+            // Adiciona o option ao elemento <select>
             select.appendChild(option);
         }
     });
@@ -200,14 +224,27 @@ function hoursLoad({ date }) {
 
         option.disabled = true;
         option.selected = true;
-        option.textContent = "Sem horários disponíveis";
+        option.textContent = "Sem horários";
         select.appendChild(option);
     }
 }
 
-
 //recarregar a lista de horarios quando o input de data mudar
-formDate.addEventListener("input", (e) => {
-    hoursLoad({ date: e.target.value });
+formDate.addEventListener("input", async (e) => {
+    const date = e.target.value;
+
+    const dailySchedules = await scheduleFetchByDay({ date });
+
+    hoursLoad({ date, dailySchedules });
 });
 
+// Recarrega os agendamentos e horários quando a data principal for alterada
+scheduleDate.addEventListener("input", async (e) => {
+    const date = e.target.value;
+
+    // atualiza o input do modal com a mesma data, se quiser manter sincronizado
+    formDate.value = date;
+
+    // Carrega os agendamentos do dia e horários disponíveis
+    await schedulesDay();
+});
