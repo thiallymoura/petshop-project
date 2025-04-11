@@ -132,9 +132,11 @@ form.onsubmit = async (e) => {
         modal.classList.add('hidden');
         document.body.classList.remove('modal-open');
 
-        // limpa o formulário
-        form.reset();
+        //atualiza a lista de agendamentos
+        await schedulesDay();
 
+        //limpa o formulário
+        form.reset();
 
     } catch (error) {
         console.log(error);
